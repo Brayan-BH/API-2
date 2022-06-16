@@ -12,10 +12,10 @@ class CategoriasController extends Controller
     function getAll()
     {
         $response= new \stdClass();
+        $response->success=true;
         
         $categoria = Categoria::all();
     
-        $response->success=true;
         $response->data = $categoria;
 
         return response()->json($response,200);
