@@ -65,6 +65,7 @@ class ProductosController extends Controller
             $producto->categoria = $request->categoria;
             $producto->descripcion = $request->descripcion;
             $producto->precio = $request->precio;
+            $producto->stock = $request->stock;
             $producto->save();
 
             $response->success=true;
@@ -103,6 +104,9 @@ class ProductosController extends Controller
 
             if($request->precio)
             $producto->precio = $request->precio;
+
+            if($request->stock)
+            $producto->stock = $request->stock;
 
             $producto->save();
 

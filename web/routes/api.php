@@ -40,32 +40,38 @@ Route::get('/v1/ventas/{id}', [VentasController::class,'getItem']);//recupera so
 Route::post('/v1/seguridad/login', [AutorizacionController::class,'login']); 
 
 
-Route::middleware('auth:api')->group(function () {
+Route::post('/v1/productos', [ProductosController::class,'store']);
+Route::put('/v1/productos', [ProductosController::class,'putUpdate']);
+Route::patch('/v1/productos', [ProductosController::class,'patchUpdate']);
+Route::delete('/v1/productos/{id}', [ProductosController::class,'delete']);
+
+// Categorias
+
+Route::post('/v1/categorias', [CategoriasController::class,'store']);
+Route::put('/v1/categorias', [CategoriasController::class,'putUpdate']);
+Route::patch('/v1/categorias', [CategoriasController::class,'patchUpdate']);
+Route::delete('/v1/categorias/{id}', [CategoriasController::class,'delete']);
+
+// Ventas
+
+Route::post('/v1/ventas', [VentasController::class,'store']);
+Route::put('/v1/ventas', [VentasController::class,'putUpdate']);
+Route::patch('/v1/ventas', [VentasController::class,'patchUpdate']);
+Route::delete('/v1/ventas/{id}', [VentasController::class,'delete']);
 
 
-    Route::post('/v1/productos', [ProductosController::class,'store']);
-    Route::put('/v1/productos', [ProductosController::class,'putUpdate']);
-    Route::patch('/v1/productos', [ProductosController::class,'patchUpdate']);
-    Route::delete('/v1/productos/{id}', [ProductosController::class,'delete']);
-    
-    // Categorias
-    
-    Route::post('/v1/categorias', [CategoriasController::class,'store']);
-    Route::put('/v1/categorias', [CategoriasController::class,'putUpdate']);
-    Route::patch('/v1/categorias', [CategoriasController::class,'patchUpdate']);
-    Route::delete('/v1/categorias/{id}', [CategoriasController::class,'delete']);
-    
-    // Ventas
-    
-    Route::post('/v1/ventas', [VentasController::class,'store']);
-    Route::put('/v1/ventas', [VentasController::class,'putUpdate']);
-    Route::patch('/v1/ventas', [VentasController::class,'patchUpdate']);
-    Route::delete('/v1/ventas/{id}', [VentasController::class,'delete']);
-    
-    
-    Route::post('/v1/users',[UsersController::class,'save']);
+Route::post('/v1/users',[UsersController::class,'save']);
 
-});
+
+
+
+
+// Route::middleware('auth:api')->group(function () {
+
+
+   
+
+// });
 
 
 
